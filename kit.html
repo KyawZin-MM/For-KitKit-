@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Kit"💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    font-family:'Great Vibes', cursive;
+}
+
+/* Background Blur */
+.background{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:url('love.jpg') no-repeat center center/cover;
+    filter:blur(15px);
+    z-index:-1;
+}
+
+/* Main Container */
+.container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    color:white;
+}
+
+/* Main Image */
+.container img{
+    width:280px;
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(255,0,100,0.6);
+}
+
+/* Text */
+.text{
+    margin-top:20px;
+    font-size:26px;
+    text-shadow:0 0 15px pink;
+}
+
+/* Flowing Name */
+.flow-name{
+    position:absolute;
+    bottom:-50px;
+    font-size:30px;
+    color:#8e7d85;
+    animation:flowUp 8s linear infinite;
+    opacity:0.8;
+}
+
+@keyframes flowUp{
+    0%{ transform:translateY(0); opacity:0;}
+    50%{ opacity:1;}
+    100%{ transform:translateY(-800px); opacity:0;}
+}
+
+/* Hearts */
+.heart{
+    position:absolute;
+    color:#ff4da6;
+    font-size:20px;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    0%{ transform:translateY(0); opacity:0;}
+    50%{ opacity:1;}
+    100%{ transform:translateY(-900px); opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="container">
+    <img src="love.jpg">
+    <div class="text">
+        ကစ်ကစ်/လတ်"လင်း<br>
+        ဒီနေ့ ဒီချိန်ကစပြီး ကလေးလေးလို အမြဲ ပျော်ရွှင်နေပါစေဗျာ 💓
+    </div>
+</div>
+
+<script>
+/* Create Hearts */
+function createHeart(){
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = Math.random()*20 + 15 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{ heart.remove(); },6000);
+}
+setInterval(createHeart,300);
+
+/* Flowing Name */
+function createName(){
+    const name = document.createElement("div");
+    name.classList.add("flow-name");
+    name.innerHTML = "lat lat lin 💕";
+    name.style.left = Math.random()*100 + "vw";
+    document.body.appendChild(name);
+
+    setTimeout(()=>{ name.remove(); },8000);
+}
+setInterval(createName,1000);
+</script>
+
+</body>
+</html>
